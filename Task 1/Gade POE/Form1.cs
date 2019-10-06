@@ -64,7 +64,7 @@ namespace Gade_POE
             {
                 for (int i = 0; i < (u.speed); i++)
                 {
-                    if (((u.Health * 100) / u.maxHealth) <= 25)
+                    if (u.combatCheck == true)
                     {
                         if (Math.Abs(u.xPos - closestUnit.xPos) > Math.Abs(u.yPos - closestUnit.yPos))
                         {
