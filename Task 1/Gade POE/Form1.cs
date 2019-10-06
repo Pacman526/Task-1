@@ -24,6 +24,7 @@ namespace Gade_POE
         public void Form1_Load(object sender, EventArgs e)
         {
             map.BattlefieldCreator();
+            
             lblMap.Text = map.PopulateMap();
 
             gameEngine.GameLogic(map.units);
@@ -59,24 +60,175 @@ namespace Gade_POE
             //CLASS METHODS
             public void MoveUnit(Unit u, Unit closestUnit)
             {
-                if (u.xPos > closestUnit.xPos)
+                for (int i = 0; i < (u.speed); i++)
                 {
-                    u.xPos -= u.speed; 
-                }
+                    if (((u.Health * 100) / u.maxHealth) <= 25)
+                    {
+                        if (Math.Abs(u.xPos - closestUnit.xPos) > Math.Abs(u.yPos - closestUnit.yPos))
+                        {
+                            if ((u.yPos + 1) >= 20 | (u.yPos - 1) <= 0)
+                            {
+                                if (u.xPos > closestUnit.xPos)
+                                {
+                                    if (u.xPos + 1 >= 20)
+                                    {
+                                        u.xPos -= 1;
+                                    }
+                                    else
+                                    {
+                                        u.xPos += 1;
+                                    }
+                                }
+                                else
+                                {
+                                    if (u.xPos - 1 <= 0)
+                                    {
+                                        u.xPos += 1;
+                                    }
+                                    else
+                                    {
+                                        u.xPos -= 1;
+                                    }
+                                }
+                            }
+                            else
+                            {
+                                if (u.yPos > closestUnit.yPos)
+                                {
+                                    u.yPos += 1;
+                                }
+                                else
+                                {
+                                    u.yPos -= 1;
+                                }
+                            }
 
-                if (u.xPos < closestUnit.xPos)
-                {
-                    u.xPos += u.speed;
-                }
+                        }
+                        else if (Math.Abs(u.xPos - closestUnit.xPos) < Math.Abs(u.yPos - closestUnit.yPos))
+                        {
+                            if ((u.xPos + 1) >= 20 | (u.xPos - 1) <= 0)
+                            {
+                                if (u.yPos > closestUnit.yPos)
+                                {
+                                    if (u.yPos + 1 >= 20)
+                                    {
+                                        u.yPos -= 1;
+                                    }
+                                    else
+                                    {
+                                        u.yPos += 1;
+                                    }
+                                }
+                                else
+                                {
+                                    if (u.yPos - 1 <= 0)
+                                    {
+                                        u.yPos += 1;
+                                    }
+                                    else
+                                    {
+                                        u.yPos -= 1;
+                                    }
+                                }
+                            }
+                            else
+                            {
+                                if (u.xPos > closestUnit.xPos)
+                                {
+                                    u.xPos += 1;
+                                }
+                                else
+                                {
+                                    u.xPos -= 1;
+                                }
+                            }
 
-                if (u.yPos > closestUnit.yPos)
-                {
-                    u.yPos -= u.speed;
-                }
+                        }
+                    }
+                    else
+                    {
+                        if (Math.Abs(u.xPos - closestUnit.xPos) < Math.Abs(u.yPos - closestUnit.yPos))
+                        {
 
-                if (u.yPos < closestUnit.yPos)
-                {
-                    u.yPos += u.speed;
+                            if ((u.yPos + 1) >= 20 | (u.yPos - 1) <= 0)
+                            {
+                                if (u.xPos > closestUnit.xPos)
+                                {
+                                    if (u.xPos - 1 <= 0)
+                                    {
+                                        u.xPos += 1;
+                                    }
+                                    else
+                                    {
+                                        u.xPos -= 1;
+                                    }
+                                }
+                                else
+                                {
+                                    if (u.yPos + 1 >= 20)
+                                    {
+                                        u.xPos -= 1;
+                                    }
+                                    else
+                                    {
+                                        u.yPos += 1;
+                                    }
+                                }
+                            }
+                            else
+                            {
+                                if (u.yPos > closestUnit.yPos)
+                                {
+                                    u.yPos -= 1;
+                                }
+                                else
+                                {
+                                    u.yPos += 1;
+                                }
+                            }
+
+                        }
+                        else if (Math.Abs(u.xPos - closestUnit.xPos) < Math.Abs(u.yPos - closestUnit.yPos))
+                        {
+                            if ((u.xPos + 1) >= 20 | (u.xPos - 1) <= 0)
+                            {
+                                if (u.yPos > closestUnit.yPos)
+                                {
+                                    if (u.yPos - 1 <= 0)
+                                    {
+                                        u.yPos += 1;
+                                    }
+                                    else
+                                    {
+                                        u.yPos -= 1;
+                                    }
+
+                                }
+                                else
+                                {
+                                    if (u.yPos + 1 >= 20)
+                                    {
+                                        u.yPos -= 1;
+                                    }
+                                    else
+                                    {
+                                        u.yPos += 1;
+                                    }
+                                }
+                            }
+                            else
+                            {
+                                if (u.xPos > closestUnit.xPos)
+                                {
+                                    u.xPos -= 1;
+                                }
+                                else
+                                {
+                                    u.xPos += 1;
+                                }
+                            }
+                        }
+                    }
                 }
             }
 
