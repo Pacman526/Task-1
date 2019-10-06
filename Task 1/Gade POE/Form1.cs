@@ -41,10 +41,10 @@ namespace Gade_POE
             public bool combatCheck;
             public string info;
             public int count;
-            double smallestDist;
+            public string name;
 
             //CLASS CONSTRUCTOR
-            public Unit(int _xPos, int _yPos, int _health, int _speed, int _attack, int _attackRange, int _team, char _symbol, bool _combatCheck)
+            public Unit(int _xPos, int _yPos, int _health, int _speed, int _attack, int _attackRange, int _team, char _symbol, bool _combatCheck, string _name)
             {
                 xPos = _xPos;
                 yPos = _yPos;
@@ -55,6 +55,7 @@ namespace Gade_POE
                 team = _team;
                 symbol = _symbol;
                 combatCheck = _combatCheck;
+                name = _name;
             }
 
             //CLASS METHODS
@@ -280,25 +281,26 @@ namespace Gade_POE
 
             public  void Death(Unit[] units ,int i)
             {
-                units = units.Where((source, index) => index != i).ToArray();
+                for (int k = i; k < units.Length - 1; k++)
+                {
+                    units[k] = units[k + 1];
+                }
             }
 
-            public  string ToString(Unit u, string unitType, Unit[] units, int i)
+            public  string ToString(Unit u, Unit[] units, int i)
             {
                 info = "";
-                if (unitType == "MeleeUnit")
+
+                if (u.Health <= 0)
                 {
-                    info += "MeleeUnit " + Convert.ToString(i + 1) + "\n" + "____________" + "\n" + "Hp : " + u.Health + "\n" + "Damage : " + u.attack + "\n" + "Team : " + (u.team +1)+ "\n" + "In Combat : " + u.combatCheck + "\n" + "Symbol: " + u.symbol; ;
-                    
+
+                }
+                else
+                {
+                    info += u.name + "\n" + "____________" + "\n" + "Hp : " + u.Health + "\n" + "Damage : " + u.attack + "\n" + "Team : " + (u.team + 1) + "\n" + "In Combat : " + u.combatCheck + "\n" + "Symbol: " + u.symbol; ;
+                    info = info + "\n" + "\n";
                 }
 
-                if (unitType == "RangedUnit")
-                {
-                    info += "RangedUnit " + Convert.ToString(i + 1) + "\n" + "____________"+ "\n" + "Hp : " + u.Health + "\n" + "Damage : " + u.attack + "\n" + "Team : " + (u.team +1)+ "\n" + "In Combat : " + u.combatCheck + "\n" + "Symbol: " + u.symbol; ;
-                  
-                }
-
-                info = info + "\n" + "\n";
                 return info;
             }
 
@@ -343,28 +345,28 @@ namespace Gade_POE
 
                     if (unit == 1 & team == 0)
                     {
-                        Unit RangedUnit = new Unit(x, y, 10, 1, 1, 5, team , Convert.ToChar("R"), false);
+                        Unit RangedUnit = new Unit(x, y, 10, 1, 1, 5, team , Convert.ToChar("R"), false, "RangedUnit");
                         map[x, y] = RangedUnit.symbol;
                         units[i] = RangedUnit;
                     }
 
                     if (unit == 1 & team == 1)
                     {
-                        Unit RangedUnit = new Unit(x, y, 10, 1, 1, 5, team, Convert.ToChar("r"), false);
+                        Unit RangedUnit = new Unit(x, y, 10, 1, 1, 5, team, Convert.ToChar("r"), false, "RangedUnit");
                         map[x, y] = RangedUnit.symbol;
                         units[i] = RangedUnit;
                     }
 
                     if (unit == 0 & team == 0)
                     {
-                        Unit MeleeUnit = new Unit(x, y, 20, 2, 2, 1, team, Convert.ToChar("M"), false);
+                        Unit MeleeUnit = new Unit(x, y, 20, 2, 2, 1, team, Convert.ToChar("M"), false, "MeleeUnit");
                         map[x, y] = MeleeUnit.symbol;
                         units[i] = MeleeUnit;
                     }
 
                     if (unit == 0 & team == 1)
                     {
-                        Unit MeleeUnit = new Unit(x, y, 20, 2, 2, 1, team, Convert.ToChar("m"), false);
+                        Unit MeleeUnit = new Unit(x, y, 20, 2, 2, 1, team, Convert.ToChar("m"), false, "MeleeUnit");
                         map[x, y] = MeleeUnit.symbol;
                         units[i] = MeleeUnit;
                         
@@ -428,7 +430,7 @@ namespace Gade_POE
                             unitType = "MeleeUnit";
                         }
                     
-                        info += u.ToString(u, unitType, units, i);
+                        info += u.ToString(u, units, i);
 
                         if (units[i].Health <= 0)
                         {
