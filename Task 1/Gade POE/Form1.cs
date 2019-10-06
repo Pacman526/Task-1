@@ -24,7 +24,7 @@ namespace Gade_POE
         public void Form1_Load(object sender, EventArgs e)
         {
             map.BattlefieldCreator();
-            
+            gameEngine.map = map;
             lblMap.Text = map.PopulateMap(map.units);
 
             gameEngine.GameLogic(map.units);
@@ -418,54 +418,45 @@ namespace Gade_POE
             public string unitType;
             Unit closestUnit;
             public int x, y, i;
-            
-                
-                public void GameLogic(Unit[] units)
-                {     
-                    
-                    info = "";
-                
-                    for (i = 0; i < units.Length; i++)
+            public Map map;
+            public int temp;
+
+
+            public void GameLogic(Unit[] units)
+                {
+
+                info = "";
+
+                for (i = 0; i < units.Length; i++)
+                {
+                    Unit u = (Unit)units[i];
+
+                    x = u.xPos;
+                    y = u.yPos;
+
+                    if (u.Health <= 0)
                     {
-                        Unit u = (Unit)units[i];
-
-                        x = u.xPos;
-                        y = u.yPos;
-
-                        if (u.attackRange == 5)
+                        u.Death(units, i);
+                    }
+                    else
+                    {
+                        closestUnit = u.ClosestUnit(units, units.Length, u);
+                        if (u.RangeCheck(closestUnit, u) == true)
                         {
-                            unitType = "RangedUnit";
-                        }
-
-                        if (u.attackRange == 1)
-                        {
-                            unitType = "MeleeUnit";
-                        }
-                    
-                        info += u.ToString(u, units, i);
-
-                        if (units[i].Health <= 0)
-                        {
-                            u.Death(units, i);
+                            u.combatCheck = true;
+                            u.CombatHandler(closestUnit, u);
                         }
                         else
                         {
-                            closestUnit = u.ClosestUnit(units, units.Length, u);
-                            if (u.RangeCheck(closestUnit, u) == true)
-                            {
-                                u.combatCheck = true;
-                                u.CombatHandler(closestUnit, u);
-                            }
-                            else
-                            {
-                                u.MoveUnit(u, closestUnit);
-                                
-                            }
+                            u.MoveUnit(u, closestUnit);
+                            map.UpdatePosition(i, x, y);
+
                         }
-                        
-                         
+
+                        info += u.ToString(u, units, i);
                     }
                 }
+            }
                 
         }
 
@@ -480,11 +471,16 @@ namespace Gade_POE
 
             private void Timer_Tick(object sender, EventArgs e)
             {
-                
+
+                gameEngine.roundCheck += 1;
+                gameEngine.temp += 1;
                 rtbInfo.Clear();
                 gameEngine.GameLogic(map.units);
-                rtbInfo.Text = gameEngine.info;       
-            }
+                rtbInfo.Text = gameEngine.info;
+                lblMap.Text = map.PopulateMap(map.units);
+                lblScore.Text = "Round : " + gameEngine.roundCheck;
+
+        }
 
             private void btnPause_Click(object sender, EventArgs e)
             {
