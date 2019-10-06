@@ -25,7 +25,7 @@ namespace Gade_POE
         {
             map.BattlefieldCreator();
             
-            lblMap.Text = map.PopulateMap();
+            lblMap.Text = map.PopulateMap(map.units);
 
             gameEngine.GameLogic(map.units);
 
@@ -326,7 +326,7 @@ namespace Gade_POE
                 {
                     for (int k = 0; k < 20; k++)
                     {
-                        map[i, k] = Convert.ToChar("~");  
+                        map[i, k] = Convert.ToChar(".");  
                     }
                 }
 
@@ -374,15 +374,28 @@ namespace Gade_POE
                 }
             }
 
-            public string PopulateMap()
+            public string PopulateMap(Unit[] units)
             {
                 string mapLayout = "";
 
-                for (int i = 0; i < 20; i++)
+                for (int k = 0; k < units.Length; k++)
                 {
-                    for (int k = 0; k < 20; k++)
+
+                    if (units[k].Health > 0)
                     {
-                        mapLayout += map[i,k]; 
+                        map[units[k].xPos, units[k].yPos] = units[k].symbol;
+                    }
+                    else
+                    {
+
+                    }
+                }
+
+                for (int j = 0; j < 20; j++)
+                {
+                    for (int l = 0; l < 20; l++)
+                    {
+                        mapLayout += map[j, l];
                     }
                     mapLayout = mapLayout + "\n";
                 }
@@ -392,10 +405,9 @@ namespace Gade_POE
 
             public void UpdatePosition(int i, int oldX, int oldY)
             {
-                
+
                 map[units[i].xPos, units[i].yPos] = units[i].symbol;
-                map[oldX, oldY] = Convert.ToChar("~");
-                PopulateMap();
+                map[oldX, oldY] = '.';
             }
 
         }
