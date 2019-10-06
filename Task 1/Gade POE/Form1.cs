@@ -239,7 +239,7 @@ namespace Gade_POE
 
             public bool RangeCheck(Unit closestUnit, Unit u )
             {
-                if (u.attackRange <= smallestDist)
+                if (u.attackRange >= Math.Sqrt(Math.Pow((closestUnit.xPos - u.xPos), 2) + Math.Pow((closestUnit.yPos - u.yPos), 2)))
                 {
                     return true;
                 }
@@ -252,101 +252,30 @@ namespace Gade_POE
             public Unit ClosestUnit(Unit[] units, int numUnits, Unit u)
             {
 
-                double[] distance = new double[numUnits];
+                double distance = 0;
                 int counter = 0;
-                int Team1 = 0, Team2 = 0;
-                int temp =0, count = 0;
+                double smallestDist;
+                Unit closestUnit = u;
 
-                for (int k = 0; k < units.Length; k++)
+                smallestDist = 15;
+                for (int j = 0; j < units.Length; j++)
                 {
-                    if (units[k].team == 0)
+                    if (units[counter].team != u.team)
                     {
-                        Team1 += 1;
+                        distance = Math.Sqrt(Math.Pow((units[counter].xPos - u.xPos), 2) + Math.Pow((units[counter].yPos - u.yPos), 2));
+                        if (distance < smallestDist)
+                        {
+                            smallestDist = distance;
+                            closestUnit = units[j];
+                        }
+                        counter += 1;
                     }
                     else
                     {
-                        Team2 += 1;
-                    }
-                    
-                }
-
-                if (u.team == 0)
-                {
-                    for (int j = 0; j < numUnits; j++)
-                    {
-                        if (units[counter].team != u.team)
-                        {
-                            distance[j] = Math.Sqrt((units[counter].xPos - u.xPos) * (units[counter].xPos - u.xPos) + (units[counter].yPos - u.yPos) * (units[counter].yPos - u.yPos));
-                            counter += 1;
-                        }
-                        else
-                        {
-                            counter += 1;
-                        }
+                        counter += 1;
                     }
                 }
-
-                if (u.team == 1)
-                {
-                    for (int j = 0; j < numUnits; j++)
-                    {
-                        if (units[counter].team != u.team)
-                        {
-                            distance[j] = Math.Sqrt(((units[counter].xPos - u.xPos) * (units[counter].xPos - u.xPos)) + ((units[counter].yPos - u.yPos) * (units[counter].yPos - u.yPos)));
-                            counter += 1;
-                        }
-                        else
-                        {
-                            counter += 1;
-                        }
-
-                    }
-                }
-
-                smallestDist = distance.Min();
-
-                for (int j = 0; j < distance.Length; j++)
-                {
-                    if (distance[j] == smallestDist)
-                    {
-                        temp = j;
-                    }
-                }
-
-                if (u.team == 0)
-                {
-                    for (int m = 0; m < units.Length; m++)
-                    {
-                        if (units[m].team == 1)
-                        {
-                            count += 1;
-                        }
-
-                        if (count == temp)
-                        {
-                            temp = count;
-                        }
-                    }
-                }
-
-                if (u.team == 1)
-                {
-                    for (int m = 0; m < units.Length; m++)
-                    {
-                        if (units[m].team == 0)
-                        {
-                            count += 1;
-                        }
-
-                        if (count == temp)
-                        {
-                            temp = count;
-                        }
-                    }
-
-                }
-
-                return units[temp];
+                return closestUnit;
             }
 
             public  void Death(Unit[] units ,int i)
