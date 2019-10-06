@@ -1,0 +1,40 @@
+C:\Users\rober\Desktop\Work\GADE\POE\Gade POE\Gade POE\obj\Debug\Gade POE.csprojAssemblyReference.cache
+C:\Users\rober\Desktop\Work\GADE\POE\Gade POE\Gade POE\obj\Debug\Gade_POE.Form1.resources
+C:\Users\rober\Desktop\Work\GADE\POE\Gade POE\Gade POE\obj\Debug\Gade_POE.Properties.Resources.resources
+C:\Users\rober\Desktop\Work\GADE\POE\Gade POE\Gade POE\obj\Debug\Gade POE.csproj.GenerateResource.cache
+C:\Users\rober\Desktop\Work\GADE\POE\Gade POE\Gade POE\obj\Debug\Gade POE.csproj.CoreCompileInputs.cache
+C:\Users\rober\Desktop\Work\GADE\POE\Gade POE\Gade POE\bin\Debug\Gade POE.exe.config
+C:\Users\rober\Desktop\Work\GADE\POE\Gade POE\Gade POE\bin\Debug\Gade POE.exe
+C:\Users\rober\Desktop\Work\GADE\POE\Gade POE\Gade POE\bin\Debug\Gade POE.pdb
+C:\Users\rober\Desktop\Work\GADE\POE\Gade POE\Gade POE\obj\Debug\Gade POE.exe
+C:\Users\rober\Desktop\Work\GADE\POE\Gade POE\Gade POE\obj\Debug\Gade POE.pdb
+C:\Users\rober\Desktop\Work\GADE\POE\RobertBosscha 19013054\Gade POE\obj\Debug\Gade POE.csprojAssemblyReference.cache
+C:\Users\rober\Desktop\Work\GADE\POE\RobertBosscha 19013054\Gade POE\obj\Debug\Gade_POE.Form1.resources
+C:\Users\rober\Desktop\Work\GADE\POE\RobertBosscha 19013054\Gade POE\obj\Debug\Gade_POE.Properties.Resources.resources
+C:\Users\rober\Desktop\Work\GADE\POE\RobertBosscha 19013054\Gade POE\obj\Debug\Gade POE.csproj.GenerateResource.cache
+C:\Users\rober\Desktop\Work\GADE\POE\RobertBosscha 19013054\Gade POE\obj\Debug\Gade POE.csproj.CoreCompileInputs.cache
+C:\Users\rober\Desktop\Work\GADE\POE\RobertBosscha 19013054\Gade POE\obj\Debug\Gade POE.exe
+C:\Users\rober\Desktop\Work\GADE\POE\RobertBosscha 19013054\Gade POE\obj\Debug\Gade POE.pdb
+C:\Users\rober\Desktop\Work\GADE\POE\RobertBosscha 19013054\Gade POE\bin\Debug\Gade POE.exe.config
+C:\Users\rober\Desktop\Work\GADE\POE\RobertBosscha 19013054\Gade POE\bin\Debug\Gade POE.exe
+C:\Users\rober\Desktop\Work\GADE\POE\RobertBosscha 19013054\Gade POE\bin\Debug\Gade POE.pdb
+C:\Users\rober\Desktop\Gade Stuff\POE\RobertBosscha 19013054\Gade POE\bin\Debug\Gade POE.exe.config
+C:\Users\rober\Desktop\Gade Stuff\POE\RobertBosscha 19013054\Gade POE\bin\Debug\Gade POE.exe
+C:\Users\rober\Desktop\Gade Stuff\POE\RobertBosscha 19013054\Gade POE\bin\Debug\Gade POE.pdb
+C:\Users\rober\Desktop\Gade Stuff\POE\RobertBosscha 19013054\Gade POE\obj\Debug\Gade POE.csprojAssemblyReference.cache
+C:\Users\rober\Desktop\Gade Stuff\POE\RobertBosscha 19013054\Gade POE\obj\Debug\Gade_POE.Form1.resources
+C:\Users\rober\Desktop\Gade Stuff\POE\RobertBosscha 19013054\Gade POE\obj\Debug\Gade_POE.Properties.Resources.resources
+C:\Users\rober\Desktop\Gade Stuff\POE\RobertBosscha 19013054\Gade POE\obj\Debug\Gade POE.csproj.GenerateResource.cache
+C:\Users\rober\Desktop\Gade Stuff\POE\RobertBosscha 19013054\Gade POE\obj\Debug\Gade POE.csproj.CoreCompileInputs.cache
+C:\Users\rober\Desktop\Gade Stuff\POE\RobertBosscha 19013054\Gade POE\obj\Debug\Gade POE.exe
+C:\Users\rober\Desktop\Gade Stuff\POE\RobertBosscha 19013054\Gade POE\obj\Debug\Gade POE.pdb
+C:\Users\rober\Desktop\Work\GADE\POE\Task-1\Task 1\Gade POE\bin\Debug\Gade POE.exe.config
+C:\Users\rober\Desktop\Work\GADE\POE\Task-1\Task 1\Gade POE\bin\Debug\Gade POE.exe
+C:\Users\rober\Desktop\Work\GADE\POE\Task-1\Task 1\Gade POE\bin\Debug\Gade POE.pdb
+C:\Users\rober\Desktop\Work\GADE\POE\Task-1\Task 1\Gade POE\obj\Debug\Gade POE.csprojAssemblyReference.cache
+C:\Users\rober\Desktop\Work\GADE\POE\Task-1\Task 1\Gade POE\obj\Debug\Gade_POE.Form1.resources
+C:\Users\rober\Desktop\Work\GADE\POE\Task-1\Task 1\Gade POE\obj\Debug\Gade_POE.Properties.Resources.resources
+C:\Users\rober\Desktop\Work\GADE\POE\Task-1\Task 1\Gade POE\obj\Debug\Gade POE.csproj.GenerateResource.cache
+C:\Users\rober\Desktop\Work\GADE\POE\Task-1\Task 1\Gade POE\obj\Debug\Gade POE.csproj.CoreCompileInputs.cache
+C:\Users\rober\Desktop\Work\GADE\POE\Task-1\Task 1\Gade POE\obj\Debug\Gade POE.exe
+C:\Users\rober\Desktop\Work\GADE\POE\Task-1\Task 1\Gade POE\obj\Debug\Gade POE.pdb
