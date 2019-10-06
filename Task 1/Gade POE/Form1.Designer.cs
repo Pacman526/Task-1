@@ -40,9 +40,10 @@
             // lblMap
             // 
             this.lblMap.AutoSize = true;
+            this.lblMap.Font = new System.Drawing.Font("Courier New", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblMap.Location = new System.Drawing.Point(54, 43);
             this.lblMap.Name = "lblMap";
-            this.lblMap.Size = new System.Drawing.Size(0, 13);
+            this.lblMap.Size = new System.Drawing.Size(0, 14);
             this.lblMap.TabIndex = 0;
             // 
             // lblScore
@@ -98,7 +99,7 @@
             this.Controls.Add(this.btnStart);
             this.Controls.Add(this.lblScore);
             this.Controls.Add(this.lblMap);
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "Form1";
             this.Text = "Form1";
             this.Load += new System.EventHandler(this.Form1_Load);

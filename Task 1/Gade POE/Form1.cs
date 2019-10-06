@@ -56,6 +56,7 @@ namespace Gade_POE
                 symbol = _symbol;
                 combatCheck = _combatCheck;
                 name = _name;
+                maxHealth = _health;
             }
 
             //CLASS METHODS
