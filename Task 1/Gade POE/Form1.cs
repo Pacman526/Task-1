@@ -62,7 +62,7 @@ namespace Gade_POE
             //CLASS METHODS
             public void MoveUnit(Unit u, Unit closestUnit)
             {
-                if ((u.Health * 100) / u.maxHealth < 25)
+                if (((u.Health * 100) / u.maxHealth) < 25)
                 {
                     u.combatCheck = false;
                     Random rnd = new Random();
@@ -88,7 +88,7 @@ namespace Gade_POE
                     }
                     else if (temp == 2)
                     {
-                        if (u.xPos + u.speed > 20)
+                        if (u.xPos + u.speed > 19)
                         {
 
                         }
@@ -97,7 +97,7 @@ namespace Gade_POE
                     }
                     else if (temp == 3)
                     {
-                        if (u.yPos + u.speed > 20)
+                        if (u.yPos + u.speed > 19)
                         {
 
                         }
@@ -106,25 +106,28 @@ namespace Gade_POE
                     }
                 }
                 else
-                if (u.xPos > closestUnit.xPos)
-                {
-                    u.xPos = u.xPos - u.speed;
-                }
-                else
-                if (u.xPos < closestUnit.xPos)
-                {
-                    u.xPos = u.xPos + u.speed;
-                }
-                else
-                if (u.yPos > closestUnit.yPos)
-                {
-                    u.yPos = u.yPos - u.speed;
-                }
-                else
-                if (u.yPos < closestUnit.yPos)
-                {
-                    u.yPos = u.yPos + u.speed;
-                }
+                    for (int k = 0; k < u.speed; k++)
+                    {
+                        if (u.xPos > closestUnit.xPos)
+                        {
+                            u.xPos = u.xPos - 1;
+                        }
+                        else
+                        if (u.xPos < closestUnit.xPos)
+                        {
+                            u.xPos = u.xPos + 1;
+                        }
+                        else
+                        if (u.yPos > closestUnit.yPos)
+                        {
+                            u.yPos = u.yPos - 1;
+                        }
+                        else
+                        if (u.yPos < closestUnit.yPos)
+                        {
+                            u.yPos = u.yPos + 1;
+                        }
+                    }
             }
 
             public void CombatHandler(Unit closestUnit, Unit u)
@@ -155,7 +158,7 @@ namespace Gade_POE
                 smallestDist = 15;
                 for (int j = 0; j < units.Length; j++)
                 {
-                    if (units[counter].team != u.team)
+                    if (units[counter].team != u.team && units[counter].Health > 0)
                     {
                         distance = Math.Sqrt(Math.Pow((units[counter].xPos - u.xPos), 2) + Math.Pow((units[counter].yPos - u.yPos), 2));
                         if (distance < smallestDist)
@@ -175,10 +178,10 @@ namespace Gade_POE
 
             public  void Death(Unit[] units ,int i)
             {
-                for (int k = i; k < units.Length - 1; k++)
-                {
-                    units[k] = units[k + 1];
-                }
+                //for (int k = i; k < units.Length - 1; k++)
+                //{
+                    //units[k] = units[k + 1];
+                //}
             }
 
             public  string ToString(Unit u, Unit[] units, int i)
@@ -281,7 +284,7 @@ namespace Gade_POE
                     }
                     else
                     {
-
+                        map[units[k].xPos, units[k].yPos] = '.';
                     }
                 }
 
@@ -331,6 +334,11 @@ namespace Gade_POE
                     if (u.Health > 0)
                     {
                         closestUnit = u.ClosestUnit(units, units.Length, u);
+
+                        if (closestUnit == u)
+                        {
+                            u.combatCheck = false; 
+                        }else
                         if (u.RangeCheck(closestUnit, u) == true)
                         {
                             u.combatCheck = true;
@@ -338,6 +346,7 @@ namespace Gade_POE
                         }
                         else
                         {
+                            u.combatCheck = false;
                             u.MoveUnit(u, closestUnit);
                             map.UpdatePosition(i, x, y);
 
